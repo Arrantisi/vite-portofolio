@@ -19,7 +19,7 @@ const Contact = () => {
         setSnackbar(!snackbar)
         setTimeout(() => {
             setSnackbar(snackbar)
-        }, 2000);
+        }, 3000);
     };
 
     return (
