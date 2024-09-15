@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import "./contact.css"
 import { FaAirbnb, FaArrowRight, FaFacebookMessenger, FaWhatsapp } from 'react-icons/fa'
@@ -7,6 +7,7 @@ import { MdOutlineMailOutline } from 'react-icons/md'
 
 const Contact = () => {
     const form = useRef();
+    const [snackbar, setSnackbar] = useState(true)
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -14,7 +15,11 @@ const Contact = () => {
         emailjs.sendForm('service_lytvafl', 'template_jqfj80d', form.current, {
             publicKey: 'iZwshNWaoK4R-BYUB',
         })
-        e.target.reset()
+        e.target.reset();
+        setSnackbar(!snackbar)
+        setTimeout(() => {
+            setSnackbar(snackbar)
+        }, 2000);
     };
 
     return (
@@ -102,8 +107,12 @@ const Contact = () => {
                             Send Massage
                             <FaAirbnb className='home__contact-icon' />
                         </button>
+
                     </form>
                 </div>
+            </div>
+            <div className={`contact__snackbar ${snackbar ? "" : "show-snackbar"}`}>
+                <p className='contact__snackbar-content'>your massage has been sended</p>
             </div>
         </section>
     )

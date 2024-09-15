@@ -110,6 +110,27 @@
     scrollbar-width: none;
 }
 
+.contact__snackbar {
+    position: fixed;
+    width: 100%;
+    bottom: -20%;
+    display: flex;
+    justify-content: center;
+    transition: .5s;
+    z-index: 50;
+}
+
+.contact__snackbar-content {
+    background-color: var(--snackbar-color);
+    color: var(--body-color);
+    padding: .8rem .8rem;
+    border-radius: .5rem;
+}
+
+.show-snackbar {
+    bottom: 20px;
+}
+
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */
 @media screen and (max-width: 992px) {
